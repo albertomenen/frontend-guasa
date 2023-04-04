@@ -26,6 +26,7 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await authService.login(user)
+      console.log(response)
       if (response.authToken) {
         storeToken(response.authToken);
         authenticateUser();

@@ -1,3 +1,62 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+
+
+
 .active {
   color: green;
+}
+
+/* Navbar */
+
+.navbar-item {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  background-color: #60F37A;
+  padding: 0.5rem 1rem;
+
+}
+
+button {
+  background-color: #60F37A;
+  border: none;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }

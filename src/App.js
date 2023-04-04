@@ -9,6 +9,8 @@ import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
 import PrivateView from './views/PrivateView';
 import IsPrivate from './components/IsPrivate';
+import './index.css';
+
 
 function App() {
   return (
