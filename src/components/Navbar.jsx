@@ -8,7 +8,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   return (
     <div className='navbar-div'>
-      {user && <p>Hello {user.username}</p> }
+      {user && <p className='welcome'>Hello {user.username}!</p> }
       <ul className='navbar-menu'>
         <li className='navbar-item'><NavLink to="/">Home</NavLink></li>
         {!isLoggedIn && <li className='navbar-item'><NavLink to="/signup">Sign up</NavLink></li>}
