@@ -9,7 +9,7 @@ import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
 import AddClient from "./components/addClient.jsx"
 import Footer from "./components/Footer"
-import FindClient from "./components/findClient"
+import ClientCard from "./components/ClientCard"
 import PrivateView from './views/PrivateView';
 import IsPrivate from './components/IsPrivate';
 import './index.css';
@@ -25,8 +25,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
-        <Route path="/addclient" element={<AddClient />} /> 
-        <Route path="/findClient" element={<FindClient />} />
+        <Route path="/addClient" element={<AddClient />} /> 
+        <Route path="/clientCard" element={<ClientCard />} /> 
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
