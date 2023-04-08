@@ -3,12 +3,12 @@ import axios from "axios"
 class ClientService {
   constructor() {
     this.api = axios.create({
-      baseURL: `${process.env.REACT_APP_BACKEND_URL}/clients`
+      baseURL: `${process.env.REACT_APP_BACKEND_URL}`,
     });
   }
 
   getClients() {
-    return this.api.get('/').then(({ data }) => data).catch(err => console.error(err))
+    return this.api.get('/client').then(({ data }) => data).catch(err => console.error(err))
   }
 
   getClient(id) {

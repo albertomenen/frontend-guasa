@@ -2,15 +2,16 @@ import React, {useState, useEffect} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'; 
 import AddClient from '../components/addClient';
 import clientService from '../services/clientService';
-import axios from 'axios';
 
 export default function Home() {
-
+  const [clients, setClients] = useState([])
 
   const getClients = async() => {
     try {
-      const response = await axios.get("http://localhost:8080/client")
+      const response = await clientService.getClients();
+
       console.log(response)
+      setClients(response)
     } catch (error) {
       console.log(error)
     }
@@ -33,6 +34,15 @@ export default function Home() {
     
   };
 
+
+  const renderClientList = () => {
+    return clients.map(client => (
+      <li key={client._id}>
+        {client.name} {client.surname}
+      </li>
+    ));
+  }
+
   
   return (
     <div className='home-container'>
@@ -43,6 +53,10 @@ export default function Home() {
         <button className="home-button"> <NavLink to="/addclient">Add a Client </NavLink></button>
         <button className="home-button"> <NavLink to="/ClientCard">Find a Client </NavLink> </button>
       </div>
+      <h2>Lista de clientes:</h2>
+      <ul>
+        {renderClientList()}
+      </ul>
     </div>
   )
 }

@@ -8,6 +8,7 @@ export default function ClientCard({ client, handleDelete }) {
     handleDelete(_id);
   };
 
+
   return (
     <div className="card">
       <h3>{name} {surname}</h3>
