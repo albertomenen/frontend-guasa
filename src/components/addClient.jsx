@@ -17,8 +17,6 @@ export default function AddClient({handleAddClient}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Hola");
-
     handleAddClient(clientData);
   };
 

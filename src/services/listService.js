@@ -1,9 +1,9 @@
 import axios from "axios"
 
-class ClientService {
+class ListService {
   constructor() {
     this.api = axios.create({
-      baseURL: `${process.env.REACT_APP_BACKEND_URL}/client`,
+      baseURL: `${process.env.REACT_APP_BACKEND_URL}/list`,
     });
     this.api.interceptors.request.use(config => {
         const storedToken = localStorage.getItem('authToken');
@@ -14,24 +14,20 @@ class ClientService {
       });
   }
 
-  getClients() {
-    return this.api.get('/').then(({ data }) => data).catch(err => console.error(err))
-  }
-
-  getClient(id) {
+  getList(id) {
     return this.api.get(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
   }
 
-  createClient(body) {
-    return this.api.post('/new', body).then(({ data }) => data).catch(err => console.error(err))
+  getLists() {
+    return this.api.get('/').then(({ data }) => data).catch(err => console.error(err))
   }
 
-  editClient(id, body) {
-    return this.api.put(`/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
+  addList(body) {
+    return this.api.post(`/list`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
   deleteClient(id) {
-    return this.api.delete(`/delete/${id}`).then(({ data }) => data).catch(err => console.error(err))
+    return this.api.delete(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
   }
 
   // async getCourses2() {
@@ -46,5 +42,5 @@ class ClientService {
 
 }
 
-const clientService = new ClientService();
-export default clientService;
+const listService = new ListService();
+export default listService;

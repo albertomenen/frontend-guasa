@@ -9,40 +9,40 @@ export default function Home() {
   const getClients = async() => {
     try {
       const response = await clientService.getClients();
-
-      console.log(response)
+      console.log(response);
       setClients(response)
     } catch (error) {
       console.log(error)
     }
   }
 
-  useEffect(()=> {
-    getClients()
-  }, [])
+  useEffect(() => {
+    getClients();
+  },[]);
 
   const navigate = useNavigate();
   const handleAddClient = async (newClientData) => {
-    // Aquí debes implementar la lógica para agregar el cliente a tu base de datos.
-    console.log(newClientData);
     try {
       const newClient = await clientService.createClient(newClientData);
       navigate(`/clients/${newClient._id}`)
     } catch (error) {
       console.error(error)
     }
-    
   };
 
+  // const initialState = {
+  //   name: '',
+  //   surname: '',
+  //   phone: '',
+  //   email: "",
+  //   bill: 0
+  // }
 
-  const renderClientList = () => {
-    return clients.map(client => (
-      <li key={client._id}>
-        {client.name} {client.surname}
-      </li>
-    ));
-  }
-
+  
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   setNewCourse(initialState);
+// }
   
   return (
     <div className='home-container'>
@@ -53,10 +53,16 @@ export default function Home() {
         <button className="home-button"> <NavLink to="/addclient">Add a Client </NavLink></button>
         <button className="home-button"> <NavLink to="/ClientCard">Find a Client </NavLink> </button>
       </div>
-      <h2>Lista de clientes:</h2>
-      <ul>
-        {renderClientList()}
-      </ul>
+      <div className="client-list">
+        <h2>List of Clients:</h2>
+        <ul>
+          {clients.map(client => (
+            <li key={client._id}>
+              {client.name} {client.surname} - {client.email}  {client.bill}<button> Add</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
