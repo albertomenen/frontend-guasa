@@ -9,7 +9,7 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
   };
 
   const handleAdd = () => {
-    handleAddClient(_id);
+    handleAddClientToList(_id);
   };
 
   return (

@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import ClientCard from '../components/ClientCard';
 import clientService from '../services/clientService';
 import AddClient from '../components/addClient';
+import listService from '../services/listService';
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
   const [selectedClients, setSelectedClients] = useState([]);
+  const [userID, setUserID] = useState('')
 
 
   useEffect(() => {
@@ -23,6 +25,13 @@ export default function PrivateView() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setUserID(storedUserId);
+    }
+  }, []);
+
   const handleDelete = async (clientId) => {
     try {
       await clientService.deleteClient(clientId);
@@ -32,9 +41,19 @@ export default function PrivateView() {
     }
   };
   const navigate = useNavigate();
-  const handleAddClientToList = (clientId) => {
-    if (!selectedClients.includes(clientId)) {
-      setSelectedClients([...selectedClients, clientId]);
+  const handleAddClientToList = async (clientID) => {
+    console.log('handleAddClientToList called'); // Debugging line
+    console.log('clientID:', clientID); // Debugging line
+    try {
+      const listData = {
+        user: userID,
+        client: clientID,
+      };
+      console.log('Calling listService.addList with23', listData); // Debugging line
+
+      await listService.addList(listData);
+    } catch (error) {
+      console.error('Error adding client to list:', error);
     }
   };
   const getClientNameById = (id) => {
@@ -49,6 +68,7 @@ export default function PrivateView() {
       console.error(error)
     }
   };
+  
 
   return (
     <div>
@@ -65,7 +85,7 @@ export default function PrivateView() {
       <h3>All clients:</h3>
         {clients.map((client) => (
           <li key={client._id}>
-            <ClientCard client={client} handleDelete={handleDelete} handleAddClientToList={handleAddClientToList} />
+            <ClientCard client={client} handleDelete={handleDelete} handleAddClientToList={handleAddClientToList} handleAddClient={handleAddClient}  />
           </li>
         ))}
       </ul>

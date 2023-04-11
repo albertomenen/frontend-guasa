@@ -23,11 +23,22 @@ class ListService {
   }
 
   createList(body) {
-    return this.api.post(`/new`, body).then(({ data }) => data).catch(err => console.error(err))
+    console.log('Calling API to create a new list:', body); // Debugging line
+    return this.api.post(`/`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
-  deleteClient(id) {
+  deleteList(id) {
     return this.api.delete(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
+  }
+
+  async addList(listData) {
+    try {
+      const response = await this.api.post('/new', listData);
+      return response.data;
+    } catch (error) {
+      console.error('Error adding list:', error);
+      throw error;
+    }
   }
 
   // async getCourses2() {
