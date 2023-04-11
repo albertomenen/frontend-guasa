@@ -26,6 +26,15 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
       <button className="btn" style={{ marginLeft: '10px' }} onClick={handleDeleteClient}>Delete</button>
       <button className="btn" style={{ marginLeft: '10px' }}><Link to={`/edit/${_id}`}>Edit</Link></button>
       <button className="btn" style={{ marginLeft: '10px' }} onClick={handleAdd}>Add</button>
+      <a
+        href={`https://wa.me/${phone}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-btn"
+        style={{ marginLeft: '10px' }}
+      >
+        WhatsApp
+      </a>
     </div>
   );
 }

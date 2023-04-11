@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-export default function AddList({handleAddClient}) {
+export default function AddList({handleAddList}) {
   const [listData, setListData] = useState({
     name: '',
-    id: '',
     client: ""
   });
 
@@ -15,7 +14,7 @@ export default function AddList({handleAddClient}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAddClient(listData);
+    handleAddList(listData);
   };
 
   return (
@@ -30,16 +29,15 @@ export default function AddList({handleAddClient}) {
           onChange={handleChange}
           required
         />
-        <label htmlFor="phone">Client:</label>
+        <label htmlFor="client">Client:</label>
         <input
           type="tel"
-          id="phone"
-          name="phone"
-          value={listData.phone}
+          name="client"
+          value={listData.client}
           onChange={handleChange}
           required
         />
-        <button type="submit">Agregar Lista</button>
+        <button  type="submit">Agregar Lista</button>
       </form>
     </div>
   );

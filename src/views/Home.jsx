@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'; 
-import AddClient from '../components/addClient';
+import { NavLink } from 'react-router-dom'; 
 import clientService from '../services/clientService';
 
 export default function Home() {
@@ -20,15 +19,8 @@ export default function Home() {
     getClients();
   },[]);
 
-  const navigate = useNavigate();
-  const handleAddClient = async (newClientData) => {
-    try {
-      const newClient = await clientService.createClient(newClientData);
-      navigate(`/clients/${newClient._id}`)
-    } catch (error) {
-      console.error(error)
-    }
-  };
+ 
+
 
   // const initialState = {
   //   name: '',
@@ -49,7 +41,6 @@ export default function Home() {
       <h1>Guasá 🦖</h1>
       <p> Agrega a clientes de todo tipo pudiendo acceder facilmente a todos ellos</p>
       <div className="button-container">
-        <AddClient handleAddClient={handleAddClient}/>
         <button className="home-button"> <NavLink to="/addclient">Add a Client </NavLink></button>
         <button className="home-button"> <NavLink to="/ClientCard">Find a Client </NavLink> </button>
       </div>
@@ -58,7 +49,8 @@ export default function Home() {
         <ul>
           {clients.map(client => (
             <li key={client._id}>
-              {client.name} {client.surname} - {client.email}  {client.bill}<button> Add</button>
+              {client.name} {client.surname} - {client.phone} <button> Add</button>
+              
             </li>
           ))}
         </ul>

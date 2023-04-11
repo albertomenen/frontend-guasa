@@ -22,8 +22,8 @@ class ListService {
     return this.api.get('/').then(({ data }) => data).catch(err => console.error(err))
   }
 
-  addList(body) {
-    return this.api.post(`/list`, body).then(({ data }) => data).catch(err => console.error(err))
+  createList(body) {
+    return this.api.post(`/new`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
   deleteClient(id) {
