@@ -1,8 +1,11 @@
-# Project's name
+# Guasa
 
 ## Description
 
-This application is called XXX. It is used for ...
+Guasa is an app that allow you to: 
+- Add contacts
+- Save contacts in your list
+- Contact the contacts by whatsapp directly
 
 > Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
 ![](picture.png)
