@@ -38,7 +38,7 @@ export default function ListView() {
 
   const handleDelete = async (listId) => {
     try {
-      await listService.deleteClient(listId);
+      await listService.deleteList(listId);
       setLists(lists.filter(list => list._id !== listId));
     } catch (error) {
       console.error('Error deleting client:', error);

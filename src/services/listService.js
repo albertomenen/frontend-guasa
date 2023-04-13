@@ -22,22 +22,12 @@ class ListService {
     return this.api.get('/').then(({ data }) => data).catch(err => console.error(err))
   }
 
-  createList(body) {
-    console.log('Calling API to create a new list:', body); // Debugging line
-    return this.api.post(`/`, body).then(({ data }) => data).catch(err => console.error(err))
-  }
-
   deleteList(id) {
     return this.api.delete(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
   }
 
-  async addList(listData) {
-    try {
-      const response = await this.api.post('/new', listData);
-      return response.data;
-    } catch (error) {
-      console.error('Error adding list:', error);
-      throw error;
+  addList(body) {
+    return this.api.post(`/`, body).then(({ data }) => data).catch(err => console.error(err));
     }
   }
 
@@ -50,8 +40,6 @@ class ListService {
   //   }
   // }
 
-
-}
 
 const listService = new ListService();
 export default listService;

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import ClientCard from '../components/ClientCard';
 import clientService from '../services/clientService';
 import AddClient from '../components/addClient';
 import listService from '../services/listService';
+import {AuthContext} from "../context/AuthContext"
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
   const [selectedClients, setSelectedClients] = useState([]);
-  const [userID, setUserID] = useState('')
-
+  //const [userID, setUserID] = useState('')
+  const {user} = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,12 +26,12 @@ export default function PrivateView() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      setUserID(storedUserId);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // const storedUserId = localStorage.getItem('userId');
+  //   // if (storedUserId) {
+  //   //   setUserID(storedUserId);
+  //   }
+  // }, []);
 
   const handleDelete = async (clientId) => {
     try {
@@ -44,9 +45,10 @@ export default function PrivateView() {
   const handleAddClientToList = async (clientID) => {
     console.log('handleAddClientToList called'); // Debugging line
     console.log('clientID:', clientID); // Debugging line
+    
     try {
       const listData = {
-        user: userID,
+        user: user._id,
         client: clientID,
       };
       console.log('Calling listService.addList with23', listData); // Debugging line
