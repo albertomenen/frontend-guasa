@@ -60,6 +60,15 @@ export default function AddClient({handleAddClient}) {
           onChange={handleChange}
           required
         />
+         <label htmlFor="description">Description: </label>
+        <input
+          type="desc"
+          id="description"
+          name="description"
+          value={clientData.description}
+          onChange={handleChange}
+          required
+        />
         <label htmlFor="bill">Factura:</label>
         <input
           type="text"

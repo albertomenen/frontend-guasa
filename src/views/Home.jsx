@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom'; 
 import clientService from '../services/clientService';
+import Homepage from "../images/Homepage.jpg";
+
 
 export default function Home() {
   const [clients, setClients] = useState([])
@@ -37,23 +39,31 @@ export default function Home() {
 // }
   
   return (
-    <div className='home-container'>
-      <h1>Guasá 🦖</h1>
-      <p> Agrega a clientes de todo tipo pudiendo acceder facilmente a todos ellos</p>
+    <div className='home-container'  >
       <div className="button-container">
         <button className="home-button"> <NavLink to="/addclient">Add a Client </NavLink></button>
-        <button className="home-button"> <NavLink to="/ClientCard">Find a Client </NavLink> </button>
+        <button className="home-button"> <NavLink to="/list">Find a Client </NavLink> </button>
       </div>
       <div className="client-list">
-        <h2>List of Clients:</h2>
-        <ul>
-          {clients.map(client => (
-            <li key={client._id}>
-              {client.name} {client.surname} - {client.phone} <button> Add</button>
-              
-            </li>
-          ))}
-        </ul>
+
+      <div className='step1-home'>
+        <h2> Step 1: Install Whatsapp Web </h2>
+        <button className="download-btn">
+            <a href="https://www.whatsapp.com/download/?lang=es" target="_blank" rel="noopener noreferrer">
+              Download Whatsapp Web
+            </a>
+        </button>
+      </div>
+
+      <div className='step1-home'>
+        <h2> Step 2: Agrega tus contactos</h2>
+      </div>
+
+      <div className='step1-home'>
+        <h2> Step 3: Hazle click al boton guasa</h2>
+      </div>
+
+       
       </div>
     </div>
   )

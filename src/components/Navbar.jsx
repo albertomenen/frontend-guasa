@@ -9,6 +9,7 @@ export default function Navbar() {
   return (
     <div className='navbar-div'>
       {user && <p className='welcome'>Hello {user.username}!</p> }
+      <h1 className="logo"> Guasá 🦖 </h1>
       <ul className='navbar-menu'>
         <li className='navbar-item'><NavLink to="/">Home</NavLink></li>
         {!isLoggedIn && <li className='navbar-item'><NavLink to="/signup">Sign up</NavLink></li>}

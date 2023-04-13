@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ClientCard({ client, handleDelete, handleAddClient, handleAddClientToList }) {
-  const { name, surname, phone, email, bill, _id } = client;
+  const { name, surname, phone, email, description, bill, _id } = client;
 
   const handleDeleteClient = () => {
     handleDelete(_id);
@@ -16,10 +16,10 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
     <div className="card">
       <h3>{name} {surname}</h3>
       <p>Phone: {phone}</p>
-      <p>Email: {email}</p>
+      <p>Email: <a href={`mailto:${email}`}>{email}</a></p>
+      <p> Description {description}</p>
       <ul>
         <li>Invoice: {bill}</li>
-        <button onClick={() => handleAddClientToList(client._id)}>+</button>
         
       </ul>
       <button className="btn"><Link to={`/clients/${_id}`}>See more</Link></button>
@@ -33,7 +33,7 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
         className="whatsapp-btn"
         style={{ marginLeft: '10px' }}
       >
-        WhatsApp
+        Guasá
       </a>
     </div>
   );
