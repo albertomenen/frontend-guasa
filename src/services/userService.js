@@ -14,12 +14,16 @@ class UserService {
     });
   }
 
+  getUser(id) {
+    return this.api.get(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
+  }
+
   editUser(id, body) {
     return this.api.put(`edit/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
   deleteUser(id) {
-    return this.api.delete(`/delete/${id}`).then(({ data }) => data).catch(err => console.error(err))
+    return this.api.delete(`delete`).then(({ data }) => data).catch(err => console.error(err))
   }
 
 }

@@ -36,7 +36,7 @@ function App() {
         <Route path="/client/edit/:id" element={<EditClient />} />
         <Route path="/addList" element={<AddList />} />       
         <Route path="/clientCard" element={<ClientCard />} /> 
-        <Route path='/user/edit/:id' element={<UserEdit />} />
+        <Route path="/edit/:userId" element={<UserEdit />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

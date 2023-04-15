@@ -7,6 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 export default function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
   const navigate = useNavigate();
+  console.log(user)
   return (
     <div className='navbar-div'>
       {user && <p className='welcome'>Hello {user.username}!</p> }
@@ -17,7 +18,7 @@ export default function Navbar() {
         {!isLoggedIn && <li className='navbar-item'><NavLink to="/login">Login</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><NavLink to="/private">Clients</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><NavLink to="/list">Lists</NavLink></li>}
-        {isLoggedIn && <li className='navbar-item'><NavLink to="/edit/:id">Profile</NavLink></li>}
+        {isLoggedIn && user && <li className='navbar-item'><NavLink to={`/edit/${user._id}`}>Profile</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><button onClick={() => logOutUser()}>Log out</button></li>}
         <li><button onClick={() => navigate(-1)}>Go back</button></li>
       </ul>
