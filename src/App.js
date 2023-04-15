@@ -14,6 +14,9 @@ import ClientCard from "./components/ClientCard"
 import PrivateView from './views/PrivateView';
 import ListView from './views/ListView';
 import IsPrivate from './components/IsPrivate';
+import EditClient from './views/EditClient';
+import ClientDetails from './views/ClientDetails';
+import UserEdit from './views/UserEdit';
 import './index.css';
 
 
@@ -29,8 +32,11 @@ function App() {
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
         <Route path="/list" element={<ListView />} /> 
         <Route path="/addClient" element={<AddClient />} /> 
+        <Route path="/client/:id" element={<ClientDetails/>} />
+        <Route path="/client/edit/:id" element={<EditClient />} />
         <Route path="/addList" element={<AddList />} />       
         <Route path="/clientCard" element={<ClientCard />} /> 
+        <Route path='/user/edit/:id' element={<UserEdit />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

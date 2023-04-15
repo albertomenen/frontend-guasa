@@ -41,10 +41,10 @@ export default function Home() {
   return (
     <div className='home-container'  >
       <div className="button-container">
-        <button className="home-button"> <NavLink to="/addclient">Add a Client </NavLink></button>
+        <button className="home-button"> <NavLink to="/private">Add a Client </NavLink></button>
         <button className="home-button"> <NavLink to="/list">Find a Client </NavLink> </button>
       </div>
-      <div className="client-list">
+      <div className="client-list-container">
 
       <div className='step1-home'>
         <h2> Step 1: Install Whatsapp Web </h2>

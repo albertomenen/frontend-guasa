@@ -74,9 +74,6 @@ export default function PrivateView() {
 
   return (
     <div>
-      <h5>
-        Aqui podemos ver la lista de clientes que tenemos y listas personalizadas
-      </h5>
       <AddClient handleAddClient={handleAddClient}/>
       <ul>
       <ul>

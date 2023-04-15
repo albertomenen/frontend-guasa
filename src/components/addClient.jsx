@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 export default function AddClient({handleAddClient}) {
   const [clientData, setClientData] = useState({
     name: '',
@@ -78,7 +79,7 @@ export default function AddClient({handleAddClient}) {
           onChange={handleChange}
           required
         />
-        <button type="submit">Agregar cliente</button>
+        <button type="submit" >Agregar cliente</button>
       </form>
     </div>
   );

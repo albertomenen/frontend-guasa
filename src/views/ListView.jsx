@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ListCard from '../components/ListCard';
 import listService from '../services/listService';
 import clientService from '../services/clientService';
 import AddList from '../components/addList';
+import { AuthContext } from '../context/AuthContext';
 
 
 export default function ListView() {
 
     const [lists, setLists] = useState([]);
     const [clients, setClients] = useState([]);
+    const {user} = useContext(AuthContext)
+
 
 
   useEffect(() => {
@@ -20,7 +23,6 @@ export default function ListView() {
         setClients(clientData);
       } catch (error) {
         console.log("error",)
-        console.error('Error fetching clients:', error);
       }
     };
 
