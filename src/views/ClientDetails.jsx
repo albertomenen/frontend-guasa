@@ -12,13 +12,15 @@ export default function ClientDetails() {
 
   const getClient = async () => {
     try {
-      const response = await clientService.getClientById(clientId);
+      console.log('Fetching client data...'); // Nuevo mensaje de depuración
+      const response = await clientService.getClient(clientId);
+      console.log('Response received:', response); // Nuevo mensaje de depuración
       setLoading(false);
       setClientData(response);
       setError(false);
       console.log(response);
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching client data:', error); // Nuevo mensaje de depuración
       setLoading(false);
       setError(true);
     }

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function ClientCard({ client, handleDelete, handleAddClient, handleAddClientToList }) {
   const { name, surname, phone, email, description, bill, _id } = client;
+  const navigate = useNavigate()
   
 
   const handleDeleteClient = () => {
@@ -12,6 +15,11 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
   const handleAdd = () => {
     handleAddClientToList(_id);
   };
+
+  const handleViewDetails = () => {
+    navigate(`/client/${client._id}`);
+  };
+
 
   return (
     <div className="card">
@@ -24,7 +32,7 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
         
       </ul>
       <button className="btn">    <Link to={`/client/${client._id}`}>View Details</Link></button>
-      <button className="btn" style={{ marginLeft: '10px' }} onClick={handleDeleteClient}>Delete</button>
+      <button className="btn"   onClick={handleDeleteClient}>Delete</button>
       <button className="btn" style={{ marginLeft: '10px' }}><Link to={`/edit/${_id}`}>Edit</Link></button>
       <button className="btn" style={{ marginLeft: '10px' }} onClick={handleAdd}>Add</button>
       <a

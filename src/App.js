@@ -32,8 +32,8 @@ function App() {
         <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
         <Route path="/list" element={<ListView />} /> 
         <Route path="/addClient" element={<AddClient />} /> 
-        <Route path="/client/:id" element={<ClientDetails/>} />
-        <Route path="/client/edit/:id" element={<EditClient />} />
+        <Route path="/client/:clientId" element={<ClientDetails/>} />
+        <Route path="/edit/:clientId" element={<EditClient />} />
         <Route path="/addList" element={<AddList />} />       
         <Route path="/clientCard" element={<ClientCard />} /> 
         <Route path="/edit/:userId" element={<UserEdit />} />

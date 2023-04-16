@@ -46,6 +46,8 @@ export default function UserEdit() {
 
 
       authenticateUser();
+      setUserEdit(thisEditedUser);
+
 
       navigate("/me");
       toast.success("Profile saved!");

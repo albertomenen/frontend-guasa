@@ -19,11 +19,11 @@ class UserService {
   }
 
   editUser(id, body) {
-    return this.api.put(`edit/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
+    return this.api.put(`/edit/${id}`, body).then(({ data }) => data).catch(err => console.error(err))
   }
 
   deleteUser(id) {
-    return this.api.delete(`delete`).then(({ data }) => data).catch(err => console.error(err))
+    return this.api.delete(`/delete`).then(({ data }) => data).catch(err => console.error(err))
   }
 
 }
