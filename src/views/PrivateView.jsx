@@ -5,6 +5,7 @@ import clientService from '../services/clientService';
 import AddClient from '../components/addClient';
 import listService from '../services/listService';
 import {AuthContext} from "../context/AuthContext"
+import ClientItem from "../components/ClientItem"
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
@@ -65,6 +66,7 @@ export default function PrivateView() {
   const handleAddClient = async (newClientData) => {
     try {
       const newClient = await clientService.createClient(newClientData);
+      console.log('New client:', newClient); 
       navigate(`/clients/${newClient._id}`)
     } catch (error) {
       console.error(error)
@@ -81,6 +83,9 @@ export default function PrivateView() {
         <li key={clientId}>{getClientNameById(clientId)}</li>
       ))}
     </ul>
+    <h3>My clients</h3>
+      <ClientItem />
+
       <h3>All clients:</h3>
         {clients.map((client) => (
           <li key={client._id}>

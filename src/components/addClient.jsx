@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import clientService from '../services/clientService';
+
 
 
 export default function AddClient({handleAddClient}) {
@@ -7,6 +9,7 @@ export default function AddClient({handleAddClient}) {
     surname: '',
     phone: '',
     email: '',
+    description: "",
     bill: '',
   });
 

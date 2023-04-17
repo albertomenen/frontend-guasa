@@ -1,13 +1,39 @@
-// ClientItem.jsx
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import clientService from '../services/clientService';
 
-export default function ClientItem({ client }) {
+
+const ClientList = () => {
+  const [clients, setClients] = useState([]);
+  const { user, isLoggedIn } = useContext(AuthContext);
+
+  const fetchClients = async () => {
+    if (!isLoggedIn) return;
+
+    try {
+      const clientsData = await clientService.getClientsByUserId(user._id);
+      setClients(clientsData);
+    } catch (error) {
+      console.error('Error fetching clients:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchClients();
+  }, [isLoggedIn]);
+
   return (
-    <li>
-      {/* Renderiza la información del cliente como desees */}
-      <h2>{client.name}</h2>
-      <p>{client.email}</p>
-      {/* ... */}
-    </li>
+    <div>
+      <h1>Clients</h1>
+      <ul>
+        {clients.map(client => (
+          <li key={client._id}>
+            {client.name} {client.surname}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
+
+export default ClientList;
