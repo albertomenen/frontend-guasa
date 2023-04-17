@@ -1,11 +1,23 @@
-# Project's name
+# Guasa
 
 ## Description
 
-This application is called XXX. It is used for ...
+Hello! Guasa is the short version of saying Whatsapp, and with this app what we are trying to made is a system that helps you sending messages to your listo of clients.
 
-> Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
-![](picture.png)
+Guasa is an app that allow you to: 
+- Add contacts
+- Save contacts in your list
+- Contact the contacts by whatsapp directly
+
+
+<img width="1500" alt="Captura de Pantalla 2023-04-15 a las 9 55 28" src="https://user-images.githubusercontent.com/90271858/232197533-ab647e11-1427-4bd6-9638-7265f7a06ef4.png">
+
+This would be the home page, where you can Add a client and Find a Client. 
+
+This is the error page, when the system can not find the page.
+
+![Uploading error.jpeg…]()
+
 
 ---
 ## Instructions
@@ -30,18 +42,22 @@ npm run start
 - User can sign up and create a new account
 - User can login
 - User can log out
+- User can Add Clients
+- User can also Delete clients
 
 ### Backlog
 
-- User can ...
+- Users can Put a reminder to send the message at a defining time.
+- Users have another ways to contact the clients as Instagram and Facebook. 
+- There is a system to log in using Google Passport.
 
 ---
 
 ## Useful links
 
-- [Presentation slides]()
-- [Backend repository]()
-- [Backend deploy]()
-- [Deployed app]()
+- 
+- [Backend repository]( https://github.com/albertomenen/project-guasa )
+- [Backend deploy]( https://fly.io/apps/guasa )
+- [Deployed app]( https://app.netlify.com/sites/guasa/deploys/641ef062aa6fd2312aec42ca )
 
 
