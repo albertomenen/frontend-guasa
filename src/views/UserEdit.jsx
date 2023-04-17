@@ -4,21 +4,20 @@ import { useNavigate } from "react-router-dom";
 import authService from "../services/authService";
 import userService from "../services/userService";
 import toast from "react-hot-toast";
+import Profile from "../views/Profile"
 
 export default function UserEdit() {
   const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext);
-  const userId = user._id;
   const [userEdit, setUserEdit] = useState(null);
-  const [error, setError] = useState(false);
+  const [,setError] = useState(false);
   const navigate = useNavigate();
 
   const getUser = async () => {
     try {
-      const response = await authService.me(userId);
+      const response = await userService.getUser(user._id);
       setUserEdit(response);
       setError(false);
     } catch (error) {
-      console.error(error);
       setError(true);
     }
   };
@@ -40,42 +39,27 @@ export default function UserEdit() {
   };
 
   const handleEdit = async () => {
-
     try {
-      const thisEditedUser = await userService.editUser(userId, userEdit);
-
+      const thisEditedUser = await userService.editUser(user._id, userEdit);
 
       authenticateUser();
       setUserEdit(thisEditedUser);
 
-
-      navigate("/me");
       toast.success("Profile saved!");
     } catch (error) {
-      console.error(error);
       setError(true);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleEdit();
-  };
-
-  const handleDeleteUser = async (userId) => {
-    try {
-      await userService.deleteUser(userId);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      navigate("/");
-      toast.success("User deleted!");
-      logOutUser();
-    }
+    await handleEdit();
+    navigate('/')
   };
 
   return (
     <div>
+      <Profile />
       <h2>Edit user:</h2>
 
       <form onSubmit={handleSubmit}>
@@ -88,16 +72,17 @@ export default function UserEdit() {
           required
         />
 
-        <label>Otra cosa:</label>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={userEdit?.email || ""}
+          onChange={handleChange}
+          required
+        />
 
         <button type="submit">Save profile</button>
       </form>
-
-      {isLoggedIn && (
-        <button onClick={() => handleDeleteUser(userEdit._id)}>Delete user</button>
-      )}
-
-      {error && <p>Something went wrong.</p>}
     </div>
   );
 }

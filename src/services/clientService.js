@@ -21,10 +21,7 @@ class ClientService {
   getClient(id) {
     return this.api.get(`/${id}`).then(({ data }) => data).catch(err => console.error(err))
   }
-// This is the route to get the clients 
-  getClientsByUserId(id) {
-    return this.api.get(`/user/${id}`).then(({ data }) => data).catch(err => console.error(err))
-  }
+ 
 
   createClient(body) {
     return this.api.post('/new', body).then(({ data }) => data).catch(err => console.error(err))

@@ -45,6 +45,9 @@ export default function ListCard({ list, handleDelete }) {
     handleDelete(_id);
   };
 
+  // Meter GetClientNameById 
+
+
   return (
     <div className="card">
       <h3>
@@ -59,17 +62,23 @@ export default function ListCard({ list, handleDelete }) {
         dateFormat="yyyy/MM/dd h:mm aa"
         className="date-picker"
       />
-      <a
-        href={`https://wa.me/${
-          client && client.phone ? client.phone : ''
-        }`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-btn"
-        style={{ marginLeft: '10px' }}
-      >
-        Guasa
-      </a>
+      
+      <ul>
+       <li>
+         Invoice: {client.bill}
+         <a
+           href="https://me.sumup.com/es-es/payment-links"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="btn-sumup"
+           style={{ marginLeft: '10px', textDecoration: 'none' }}
+         >
+           <button className='btn-sumup'>
+             Pay Invoice
+           </button>
+         </a>
+       </li>
+      </ul>
       <button onClick={handleDeleteList}>Delete</button>
     </div>
   );

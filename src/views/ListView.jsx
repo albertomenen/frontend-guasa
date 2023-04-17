@@ -17,7 +17,7 @@ export default function ListView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await listService.getLists();
+        const data = await listService.getList(user._id);
         const clientData = await clientService.getClients();
         setLists(data);
         setClients(clientData);
@@ -46,17 +46,17 @@ export default function ListView() {
       console.error('Error deleting client:', error);
     }
   };
-  const getClientNameById = (id) => {
-    const client = clients.find((client) => client._id === id);
-    return client ? `${client.name} ${client.surname}` : '';
-  };
+  // const getClientNameById = async (id) => {
+  //   const data = await listService.getList(id)
+  //   return data
+  // };
     
   return (
     <div>
     <ul>
       {lists.map((list) => (
         <li key={list._id}>
-          <ListCard list={list} handleDelete={handleDelete} getClientNameById={getClientNameById} />
+          <ListCard list={list} handleDelete={handleDelete}/>
         </li>
       ))}
     </ul>

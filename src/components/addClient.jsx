@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import clientService from '../services/clientService';
+import React, {  useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +12,9 @@ export default function AddClient({handleAddClient}) {
     description: "",
     bill: '',
   });
+  const navigate = useNavigate();
+  const { clientId } = useParams();
+
 
 
 
@@ -19,9 +22,11 @@ export default function AddClient({handleAddClient}) {
     setClientData({ ...clientData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleAddClient(clientData);
+    await handleAddClient(clientData);
+    console.log(clientData)
+    navigate(`/`);
   };
 
   return (

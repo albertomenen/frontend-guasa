@@ -44,15 +44,12 @@ export default function PrivateView() {
   };
   const navigate = useNavigate();
   const handleAddClientToList = async (clientID) => {
-    console.log('handleAddClientToList called'); // Debugging line
-    console.log('clientID:', clientID); // Debugging line
     
     try {
       const listData = {
         user: user._id,
         client: clientID,
       };
-      console.log('Calling listService.addList with23', listData); // Debugging line
 
       await listService.addList(listData);
     } catch (error) {
@@ -83,8 +80,6 @@ export default function PrivateView() {
         <li key={clientId}>{getClientNameById(clientId)}</li>
       ))}
     </ul>
-    <h3>My clients</h3>
-      <ClientItem />
 
       <h3>All clients:</h3>
         {clients.map((client) => (

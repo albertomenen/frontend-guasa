@@ -160,7 +160,7 @@ body {
 }
 
 .button-container {
-  padding-top: 200px;
+  padding-top: 1%;
 }
 
 .download-btn {
@@ -227,7 +227,7 @@ body {
   display: inline-block;
   font-size: 1.1rem;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 8px 20px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
@@ -309,6 +309,18 @@ button {
 
 /* Whatsapp button */
 
+@keyframes whatsapp-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .whatsapp-btn {
   background-color: #25D366;
   color: white;
@@ -316,7 +328,19 @@ button {
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 14px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  animation: whatsapp-animation 1s infinite;
 }
+
+.whatsapp-btn:hover {
+  background-color: #128C7E;
+}
+
+.btn-sumup {
+  background-color: #222;
+}
+
 
 /* Not found  */
 
@@ -373,3 +397,40 @@ button {
 .back-to-home:hover {
   background-color: #128C7E;
 }
+
+/* Client Details */
+
+/* Client Details */
+
+.client-details-container {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #F4F4F4;
+  min-height: calc(100vh - 64px); 
+  box-sizing: border-box;
+}
+
+.client-details-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #075E54;
+  margin-bottom: 1rem;
+}
+
+.client-details-container p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+  text-align: left;
+  max-width: 800px;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.client-details-container p:last-child {
+  margin-bottom: 0;
+}
+

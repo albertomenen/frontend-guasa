@@ -17,6 +17,7 @@ import IsPrivate from './components/IsPrivate';
 import EditClient from './views/EditClient';
 import ClientDetails from './views/ClientDetails';
 import UserEdit from './views/UserEdit';
+import Profile from "./views/Profile"
 import './index.css';
 
 
@@ -34,9 +35,10 @@ function App() {
         <Route path="/addClient" element={<AddClient />} /> 
         <Route path="/client/:clientId" element={<ClientDetails/>} />
         <Route path="/edit/:clientId" element={<EditClient />} />
+        <Route path="/user/:userId" element={<Profile />} />
         <Route path="/addList" element={<AddList />} />       
         <Route path="/clientCard" element={<ClientCard />} /> 
-        <Route path="/edit/:userId" element={<UserEdit />} />
+        <Route path="/user/edit/:userId" element={<UserEdit />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

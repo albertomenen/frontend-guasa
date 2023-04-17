@@ -18,7 +18,7 @@ export default function Navbar() {
         {!isLoggedIn && <li className='navbar-item'><NavLink to="/login">Login</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><NavLink to="/private">Clients</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><NavLink to="/list">Lists</NavLink></li>}
-        {isLoggedIn && user && <li className='navbar-item'><NavLink to={`/edit/${user._id}`}>Profile</NavLink></li>}
+        {isLoggedIn && user && <li className='navbar-item'><NavLink to={`/user/${user._id}`}>Profile</NavLink></li>}
         {isLoggedIn && <li className='navbar-item'><button onClick={() => logOutUser()}>Log out</button></li>}
         <li><button onClick={() => navigate(-1)}>Go back</button></li>
       </ul>
