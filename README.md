@@ -2,7 +2,7 @@
 
 ## Description
 
-Hello! Guasa is the short version of saying Whatsapp, and with this app what we are trying to made is a system that helps you sending messages to your listo of clients.
+Hello! Guasa is the short version of saying Whatsapp, and with this app what we are trying to made is a system that helps you sending messages to your list of clients.
 
 Guasa is an app that allow you to: 
 - Add contacts
