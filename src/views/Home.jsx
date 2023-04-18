@@ -10,10 +10,8 @@ export default function Home() {
   const getClients = async() => {
     try {
       const response = await clientService.getClients();
-      console.log(response);
       setClients(response)
     } catch (error) {
-      console.log(error)
     }
   }
 

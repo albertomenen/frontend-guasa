@@ -7,7 +7,6 @@ import { AuthContext } from '../context/AuthContext';
 export default function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
   const navigate = useNavigate();
-  console.log(user)
   return (
     <div className='navbar-div'>
       {user && <p className='welcome'>Hello {user.username}!</p> }

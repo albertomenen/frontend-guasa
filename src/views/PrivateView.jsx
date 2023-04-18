@@ -5,7 +5,6 @@ import clientService from '../services/clientService';
 import AddClient from '../components/addClient';
 import listService from '../services/listService';
 import {AuthContext} from "../context/AuthContext"
-import ClientItem from "../components/ClientItem"
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
@@ -91,3 +90,4 @@ export default function PrivateView() {
     </div>
   );
 }
+
