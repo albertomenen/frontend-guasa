@@ -2,12 +2,16 @@
 
 ## Description
 
-Hello! Guasa is the short version of saying Whatsapp, and with this app what we are trying to made is a system that helps you sending messages to your listo of clients.
+Hello! Guasa is the short version of saying Whatsapp, and with this app what we are trying to made is a system that helps you sending messages to your list of clients.
 
 Guasa is an app that allow you to: 
 - Add contacts
 - Save contacts in your list
 - Contact the contacts by whatsapp directly
+- You can send invoices by Sumup.
+- You can edit contacts.
+- You can edit you profile name.
+- You can Add and delete List of contacts.
 
 
 <img width="1500" alt="Captura de Pantalla 2023-04-15 a las 9 55 28" src="https://user-images.githubusercontent.com/90271858/232197533-ab647e11-1427-4bd6-9638-7265f7a06ef4.png">
