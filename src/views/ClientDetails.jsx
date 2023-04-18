@@ -24,7 +24,7 @@ export default function ClientDetails() {
 
   useEffect(() => {
     getClient();
-  }, [clientId]);
+  }, );
 
   return (
     <div>

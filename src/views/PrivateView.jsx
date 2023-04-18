@@ -8,7 +8,7 @@ import {AuthContext} from "../context/AuthContext"
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
-  const [selectedClients, setSelectedClients] = useState([]);
+  const [selectedClients] = useState([]);
   //const [userID, setUserID] = useState('')
   const {user} = useContext(AuthContext)
 

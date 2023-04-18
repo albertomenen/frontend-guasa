@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthContext';
 export default function ListView() {
 
     const [lists, setLists] = useState([]);
-    const [clients, setClients] = useState([]);
+    const [ setClients] = useState([]);
     const {user} = useContext(AuthContext)
 
 
@@ -26,16 +26,8 @@ export default function ListView() {
     };
 
     fetchData();
-  }, []);
+  }, );
 
-  const handleAddList = async (newListData) => {
-    try {
-      const newList = await listService.createList(newListData);
-      setLists([...lists, newList]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handleDelete = async (listId) => {
     try {

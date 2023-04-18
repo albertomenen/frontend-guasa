@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom'; 
 import clientService from '../services/clientService';
-import Homepage from "../images/Homepage.jpg";
 
 
 export default function Home() {
-  const [clients, setClients] = useState([])
+  const [ setClients] = useState([])
 
   const getClients = async() => {
     try {

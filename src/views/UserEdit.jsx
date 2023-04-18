@@ -1,13 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import authService from "../services/authService";
 import userService from "../services/userService";
 import toast from "react-hot-toast";
 import Profile from "../views/Profile"
 
 export default function UserEdit() {
-  const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext);
+  const {  user, authenticateUser } = useContext(AuthContext);
   const [userEdit, setUserEdit] = useState(null);
   const [,setError] = useState(false);
   const navigate = useNavigate();
