@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import ListCard from '../components/ListCard';
 import listService from '../services/listService';
 import clientService from '../services/clientService';
-import AddList from '../components/addList';
 import { AuthContext } from '../context/AuthContext';
 
 
