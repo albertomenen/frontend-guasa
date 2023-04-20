@@ -2,14 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import ListCard from '../components/ListCard';
 import listService from '../services/listService';
 import clientService from '../services/clientService';
-import AddList from '../components/addList';
 import { AuthContext } from '../context/AuthContext';
 
 
 export default function ListView() {
 
     const [lists, setLists] = useState([]);
-    const [clients, setClients] = useState([]);
+    const [ setClients] = useState([]);
     const {user} = useContext(AuthContext)
 
 
@@ -27,16 +26,7 @@ export default function ListView() {
     };
 
     fetchData();
-  }, []);
-
-  const handleAddList = async (newListData) => {
-    try {
-      const newList = await listService.createList(newListData);
-      setLists([...lists, newList]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  }, );
 
   const handleDelete = async (listId) => {
     try {

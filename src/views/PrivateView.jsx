@@ -5,11 +5,10 @@ import clientService from '../services/clientService';
 import AddClient from '../components/addClient';
 import listService from '../services/listService';
 import {AuthContext} from "../context/AuthContext"
-import ClientItem from "../components/ClientItem"
 
 export default function PrivateView() {
   const [clients, setClients] = useState([]);
-  const [selectedClients, setSelectedClients] = useState([]);
+  const [selectedClients] = useState([]);
   //const [userID, setUserID] = useState('')
   const {user} = useContext(AuthContext)
 

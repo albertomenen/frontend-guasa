@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 
 export default function ClientCard({ client, handleDelete, handleAddClient, handleAddClientToList }) {
   const { name, surname, phone, email, description, _id } = client;
-  const navigate = useNavigate()
   
 
   const handleDeleteClient = () => {
@@ -16,9 +14,6 @@ export default function ClientCard({ client, handleDelete, handleAddClient, hand
     handleAddClientToList(_id);
   };
 
-  const handleViewDetails = () => {
-    navigate(`/client/${client._id}`);
-  };
 
 
   return (

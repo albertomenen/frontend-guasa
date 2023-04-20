@@ -25,7 +25,7 @@ export default function EditClient() {
 
   useEffect(() => {
     getClient();
-  }, [clientId]);
+  }, );
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -20,7 +20,7 @@ const ClientList = () => {
 
   useEffect(() => {
     fetchClients();
-  }, [isLoggedIn]);
+  }, );
 
   return (
     <div>
