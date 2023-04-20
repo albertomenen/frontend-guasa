@@ -26,10 +26,17 @@ This is the error page, when the system can not find the page.
 ---
 ## Instructions
 
-When cloning the project, change the <code>sample.env</code> file name for <code>.env</code>. The project will run on **PORT 3000**.
+The app should be running, together with Whatsapp from Desktop. You can add and erase clients and from the View Details, you can send them a whatsapp without the need of adding the phone number. 
+
+You can also made a link for a payment system, together with Sumup you can send links for payment, what you need is: 
+  - Having an account at Sumup as a Merchant. 
+  - Have also a validated account. 
+  - Running whatsapp on your desk. 
+
+
 
 Then, run:
-```bash
+```bash 
 npm install
 ```
 
