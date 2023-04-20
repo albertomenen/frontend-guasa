@@ -14,10 +14,6 @@ export default function ClientCard({ client, handleDelete, handleAddClientToList
     handleAddClientToList(_id);
   };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> inestable
 
   return (
     <div className="card">
