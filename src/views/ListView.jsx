@@ -28,7 +28,6 @@ export default function ListView() {
     fetchData();
   }, );
 
-
   const handleDelete = async (listId) => {
     try {
       await listService.deleteList(listId);
