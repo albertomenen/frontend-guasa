@@ -64,6 +64,8 @@ npm run start
 - Users can Put a reminder to send the message at a defining time.
 - Users have another ways to contact the clients as Instagram and Facebook. 
 - There is a system to log in using Google Passport.
+- Users are connected to Stripe and can send also payment links.
+- Subscription mode
 
 ---
 
