@@ -18,6 +18,7 @@ import EditClient from './views/EditClient';
 import ClientDetails from './views/ClientDetails';
 import UserEdit from './views/UserEdit';
 import Profile from "./views/Profile"
+import Search from "./views/Search"
 import './index.css';
 
 
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <Toaster/>
       <Navbar />
+      <Search />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

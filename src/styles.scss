@@ -1,0 +1,110 @@
+.inputAnimate {
+    --offsetLeft: 0;
+    --offsetLeftScale: 16px;
+    padding: 16px;
+    min-width: 220px;
+    position: relative;
+    input,
+    span {
+        display: block;
+        font-size: 16px;
+        font-family: inherit;
+        line-height: 22px;
+        padding: 0 0 0 3px;
+        color: white;
+        text-shadow: 0 0 0 #8C6FF0;
+    }
+    input {
+        background: none;
+        outline: none;
+        border: 0;
+        position: relative;
+        z-index: 1;
+        transition: text-shadow .3s ease;
+        &::placeholder {
+            color: #8C6FF0;
+            opacity: .5;
+        }
+        & + div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            border-radius: 6px;
+            transition: transform .4s ease, left .4s ease, border-radius .5s ease;
+            transform-origin: 0 50%;
+            & + em {
+                opacity: 0;
+                left: 16px;
+                width: 1px;
+                height: 24px;
+                top: 50%;
+                margin: -12px 0 0 0;
+                position: absolute;
+                z-index: 1;
+                display: block;
+                background: #fff;
+                transform: translateX(var(--offsetLeft));
+            }
+        }
+        &:not(:focus) {
+            width: 100% !important;
+        }
+        &:focus {
+            text-shadow: 0 0 0 #fff;
+            & + div {
+                border-radius: 0;
+                left: var(--offsetLeftScale);
+                transform: scale(0, .45);
+                & + em {
+                    animation: blink 1s linear infinite;
+                }
+            }
+        }
+    }
+    span {
+        display: none;
+    }
+}
+
+@keyframes blink {
+    30%, 70% {
+        opacity: 1;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+// Center & dribbble
+.search-body {
+    min-height: 100vh;
+    font-family: Roboto, Arial;
+    color: #ADAFB6;
+    background: #5628EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .dribbble {
+        position: fixed;
+        display: block;
+        right: 24px;
+        bottom: 24px;
+        img {
+            display: block;
+            width: 76px;
+        }
+    }
+}

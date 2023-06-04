@@ -19,21 +19,6 @@ export default function Home() {
   },);
 
  
-
-
-  // const initialState = {
-  //   name: '',
-  //   surname: '',
-  //   phone: '',
-  //   email: "",
-  //   bill: 0
-  // }
-
-  
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   setNewCourse(initialState);
-// }
   
   return (
     <div className='home-container'  >
